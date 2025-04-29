@@ -296,102 +296,68 @@ footer p{
 header label,header input{
     display: none;
 }
-
-@media(max-width:767px){
-
-.contenedor-nav{
-    flex-direction: column;
-    width: 50%;
-    top:0;
-    left: -100%;
-    padding: 20px 0 0 0;
-
-
-}
-.logo-nav{
-    margin-bottom: 40px;
-}
-.contenedor-nav nav{
-    width: 100%;
-    margin: 0;
-}
-.contenedor-nav ul{
-    display: block;
-    width: 100%;
-    margin: 0;
-}
-.contenedor-nav ul li{
-    display: block;
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid gray;
-
-}
-.hamburger{
-    display: block;
-    position: fixed;
-    z-index: 2000;
-    top:0;
-    left: 0;
-    margin: 0;
-    padding: 5px;
-    color: white;
-    font-size: 25px;
-    background-color: rgba(0, 0, 0, 0.507);
-    border-radius: 3px;
-
-}
-.hamburger .equis{
-    display: none;
-}
-header input:checked~.hamburger .equis{
-    display: inline;
-}
-header input:checked~.hamburger .barras{
-    display: none;
-}
-header input:checked~.hamburger{
-    display: inline;
-    margin: 0;
-    left: 45%;
-}
- header input:checked~.contenedor-nav{
-    left: 0;
- } 
-
-}
-
-
 .carrito-flotante {
     position: absolute;
     top: 100%;
     right: 0;
-    width: 300px;
+    width: 30%;
     background-color: #ffffff;
     border: 1px solid #ddd;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+    padding: 1rem 1rem 3rem 1rem;
     z-index: 1000;
     border-radius: 0.5rem;
     transition: all 0.3s ease-in-out;
-   
+    max-height: 80vh; /* Limita la altura máxima al 80% de la altura de la ventana */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede */
+    font-family: "Roboto", sans-serif;
 }
 
 .carrito-flotante h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+    color: #333;
+    text-align: center;
 }
 
-.carrito-flotante .producto {
-    margin-bottom: 0.8rem;
+.carrito-flotante .producto-carrito {
+    display: flex; /* Flexbox para alinear elementos en fila */
+    align-items: center; /* Centra verticalmente la imagen y la información */
+    gap: 15px; /* Espaciado entre la imagen y la información */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px dashed #ccc;
-    padding-bottom: 0.4rem;
 }
 
-.carrito-flotante .producto:last-child {
+.producto-carrito img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.carrito-flotante .producto-info {
+    flex: 1; /* Ocupa el espacio restante */
+    display: flex;
+    flex-direction: column; /* Coloca los textos en una columna */
+    justify-content: center; /* Centra verticalmente los textos */
+   
+}
+
+.carrito-flotante .producto-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.carrito-flotante .producto-info p strong {
+    color: #333;
+}
+
+.carrito-flotante .producto-carrito:last-child {
     border-bottom: none;
 }
 
@@ -403,4 +369,114 @@ header input:checked~.hamburger{
 .carrito-flotante .vacio {
     text-align: center;
     color: #777;
+    font-size: 1rem;
+    margin-top: 2rem;
 }
+
+.carrito-flotante .total {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1rem;
+    color: #333;
+}
+
+.carrito-flotante .btn-vaciar,
+.carrito-flotante .btn-finalizar {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.carrito-flotante .btn-vaciar {
+    background-color: #dc3545;
+}
+
+.carrito-flotante .btn-vaciar:hover {
+    background-color: #c82333;
+}
+
+.carrito-flotante .btn-finalizar:hover {
+    background-color: #0056b3;
+}
+
+@media(max-width:767px){
+
+    .contenedor-nav{
+        flex-wrap: wrap;
+         width: 100%;
+         top:0;
+         left: -100%;
+         padding: 20px 0 0 0;
+     
+     
+     }
+     .logo-nav{
+         margin-bottom: 10px;
+     }
+     .contenedor-nav nav{
+         width: 100%;
+         margin: 0;
+     }
+     .contenedor-nav ul{
+        flex-wrap: wrap;
+         width: 100%;
+         margin: 0;
+     }
+     .contenedor-nav ul li{
+         /* display: block; */
+         margin: 0;
+         padding: 10px;
+         text-align: center;
+         border-bottom: 1px solid gray;
+     
+     }
+     .hamburger{
+         display: block;
+         position: fixed;
+         z-index: 2000;
+         top:0;
+         left: 0;
+         margin: 0;
+         padding: 5px;
+         color: white;
+         font-size: 25px;
+         background-color: rgba(0, 0, 0, 0.507);
+         border-radius: 3px;
+     
+     }
+     .hamburger .equis{
+         display: none;
+     }
+     header input:checked~.hamburger .equis{
+         display: inline;
+     }
+     header input:checked~.hamburger .barras{
+         display: none;
+     }
+     header input:checked~.hamburger{
+         display: inline;
+         margin: 0;
+         left: 95%;
+     }
+      header input:checked~.contenedor-nav{
+         left: 0;
+      } 
+      .carrito-flotante {
+         width: 100%;
+      }
+
+}
+
+

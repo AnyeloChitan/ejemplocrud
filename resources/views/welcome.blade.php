@@ -11,12 +11,29 @@
 
 <link rel="stylesheet" href="css/estilos-bienvenida.css">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/estilos-alerta.css">
 
 @livewireStyles
 
 
 </head>
 <body>
+    @if (session('success'))
+    <div id="success-message" class="alerta success">
+        <p class="text-center font-bold">{{ session('success') }}</p>
+    </div>
+
+    <script>
+        // Ocultar el mensaje después de 5 segundos
+        setTimeout(() => {
+            const successMessage = document.getElementById('success-message');
+            if (successMessage) {
+                successMessage.style.display = 'none';
+            }
+        }, 5000); // 5000 ms = 5 segundos
+    </script>
+@endif
+
     <header>
         <input type="checkbox" id="menu">
         <label for="menu" class="hamburger">

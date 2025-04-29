@@ -5,11 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\VentaController;
+
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/finalizarcompra', [VentaController::class, 'procesarVentaCarrito'])->name('procesarVentaCarrito');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
