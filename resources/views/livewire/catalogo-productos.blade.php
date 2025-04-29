@@ -15,6 +15,8 @@
             <img src="{{ asset('img/'.$producto->imagen) }}" alt="{{ $producto->imagen }}" >
             <h3>{{ $producto->nombre }}</h3>
             <p>Precio: ${{ $producto->precio_venta }}</p>
+
+            <button wire:click="addToCart({{ $producto->id }})"class="btn-agregar-carrito">Comprar🛒</button>
         </div>
     @endforeach
 

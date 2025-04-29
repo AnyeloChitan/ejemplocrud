@@ -34,6 +34,8 @@
                 <li><a href="">Productos</a></li>
                 <li><a href="">Contacto</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>
+                <li>  @livewire('icono-carrito')
+                </li>
             </ul>
            </nav>
         </section>
