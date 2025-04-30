@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/estilos-tablas.css')}}">   
     <link rel="stylesheet" href="{{asset('css/estilos-formularios.css')}}">
+    <link rel="stylesheet" href="css/estilos-alerta.css">
     
     
 </head>
@@ -22,7 +23,7 @@
   <!-- slidebar   -->
    <aside class="slidebar" id="slidebar">
    
-    <a href="" class="logo">
+    <a href=" {{route('welcome')}}" class="logo">
         <img src="{{asset('img/cangrejo.png')}}" alt="Logo" class="logo-img">
         <p class="logo-text">Tienda</p>
       </a>
@@ -44,6 +45,12 @@
 
         </div>
     </div>
+     <!-- DashBOard -->
+
+     <div class="element-slidebar-btn">
+        <span><img  src="{{asset('img/compras.png')}}" alt="Product"></span>
+        <a href="{{route('dashboard')}}">Dashboard</a>         
+       </div>
      <!-- Categorias -->
          
         <div class="element-slidebar-btn">
@@ -70,12 +77,7 @@
         </div>
        
     
-    <!-- Compras -->
-
-        <div class="element-slidebar-btn">
-         <span><img  src="{{asset('img/compras.png')}}" alt="Product"></span>
-         <a href="{{route('categoria.index')}}">Compras</a>         
-        </div>
+   
        
         <!-- Ventas -->
         
@@ -100,7 +102,21 @@
       @yield('contenido')
 
    </main>
-   
+   @if (session('success'))
+    <div id="success-message" class="alerta success">
+        <p class="text-center font-bold">{{ session('success') }}</p>
+    </div>
+
+    <script>
+        // Ocultar el mensaje después de 5 segundos
+        setTimeout(() => {
+            const successMessage = document.getElementById('success-message');
+            if (successMessage) {
+                successMessage.style.display = 'none';
+            }
+        }, 5000); // 5000 ms = 5 segundos
+    </script>
+   @endif
     <script src="{{asset('js/script.js')}}"></script>
 </body>
 </html>

@@ -61,7 +61,7 @@ class CategoriaController extends Controller
         $categoria->save();
     
 
-        return redirect()->route('categoria.index');
+        return redirect()->route('categoria.index')->with('success', 'categoria agragada exitosamente');
     }
 
     /**

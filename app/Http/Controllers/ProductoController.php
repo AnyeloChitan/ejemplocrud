@@ -89,7 +89,7 @@ class ProductoController extends Controller
 
     $producto->save();
 
-    return redirect()->route('producto.index');
+    return redirect()->route('producto.index')->with('success', 'producto agregado exitosamente');
    
 
     }

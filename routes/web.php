@@ -6,17 +6,16 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\DashboardController;
 
 
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 Route::get('/finalizarcompra', [VentaController::class, 'procesarVentaCarrito'])->name('procesarVentaCarrito');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
