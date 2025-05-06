@@ -16,7 +16,7 @@ class CategoriaController extends Controller
     {
         $this->middleware('can:categoria.create')->only(['create','store']);      
         $this->middleware('can:categoria.index')->only('index');
-        $this->middleware('can:categoria.edit')->only(['edit','update']); 
+        $this->middleware('can:categoria.update')->only(['edit','update']); 
         $this->middleware('can:categoria.destroy')->only('destroy');
 
     }
@@ -46,10 +46,11 @@ class CategoriaController extends Controller
     {
         //validar datos del formulario
         $validatedData=$request->validate([
-          'nombre'=>'required|max:255',
+          'nombre'=>'required|max:255|unique:categorias,nombre',
           'descripcion'=>'nullable',
           'status'=>'required|boolean',
-
+        ],[
+            'nombre.unique'=>'El nombre de la categoria ya existe'
         ]);
         //crear una nueva instacia de categoria
         $categoria=new Categoria();

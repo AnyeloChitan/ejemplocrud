@@ -17,6 +17,9 @@
             <div class="form-group">
                 <label for="nombre">Nombre de la Categoría</label>
                 <input type="text" id="nombre" name="nombre" required>
+                @error('nombre')
+                <small class="text-danger">{{$message}}</small>
+                @enderror
             </div>
             <!-- Campo Descripción -->
             <div class="form-group">

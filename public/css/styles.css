@@ -432,6 +432,12 @@ body{
     background-color: #edf2f7; /* Color de fondo al pasar el mouse */
     color: #2d3748; /* Color del texto al pasar el mouse */
 }
+/* textos de validacion */
+.text-danger {
+    color: red;
+    font-size: 0.9rem;
+    background-color: #f8d7da; /* Fondo rojo claro */
+  }
 
 @media(max-width:767px){
     .main{
